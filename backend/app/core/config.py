@@ -19,6 +19,9 @@ class Settings:
     ADMIN_EMAIL: str = os.getenv("ADMIN_EMAIL", "admin@silkoptima.com")
     ADMIN_PASSWORD: str = os.getenv("ADMIN_PASSWORD", "Admin@2026!")
     CORS_ORIGINS: str = os.getenv("CORS_ORIGINS", "")
+    AI_INTERVIEW_FRONTEND_URL: str = os.getenv(
+        "AI_INTERVIEW_FRONTEND_URL", "http://localhost:5174"
+    )
 
 
 @lru_cache

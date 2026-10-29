@@ -12,15 +12,13 @@ from app.dependencies.auth import get_current_user
 from app.models.interview import AIInterview
 from app.models.user import User
 from app.services.email_service import send_interview_invitation_email
+from app.core.config import get_settings
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
 
 router = APIRouter(prefix="/api/admin/interviews", tags=["Admin AI Interviews"])
-
-AI_INTERVIEW_FRONTEND_URL = "http://localhost:5174"
-
 
 
 # -------------------------------------------------------------
@@ -180,7 +178,9 @@ def schedule_ai_interview(
 
     # Generate secure single-use token & URL
     token = secrets.token_urlsafe(32)
-AI_INTERVIEW_FRONTEND_URL = "http://localhost:5174"
+    settings = get_settings()
+    base_url = settings.AI_INTERVIEW_FRONTEND_URL.rstrip('/')
+    interview_url = f"{base_url}/?token={token}"
 
     expires_at = utc_now() + timedelta(hours=payload.expires_in_hours)
     expiry_formatted = expires_at.strftime("%b %d, %Y %I:%M %p UTC")
