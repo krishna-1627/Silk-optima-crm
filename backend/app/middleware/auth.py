@@ -1,0 +1,1 @@
+"""Middleware placeholder for authentication."""

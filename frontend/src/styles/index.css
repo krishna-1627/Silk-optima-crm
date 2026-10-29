@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #111827;
+  background-color: #f9fafb;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f8fafc;
+  color: #111827;
+  overscroll-behavior: none;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main,
+section,
+article,
+av,
+aside,
+div {
+  min-width: 0;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-smoothing: antialiased;
+}
+
+/* Landing page specific visuals */
+.wave-bg {
+  background-image: radial-gradient(closest-side at 10% 20%, rgba(16,185,129,0.06), transparent 20%),
+                    linear-gradient(180deg, rgba(6,182,212,0.12), transparent 60%);
+  filter: blur(20px);
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));
+  backdrop-filter: blur(6px) saturate(120%);
+  border: 1px solid rgba(15,23,42,0.04);
+  border-radius: 14px;
+}
+
+@media (max-width: 640px) {
+  .wave-bg { height: 48vw !important; }
+}
+
+/* refined theme */
+:root {
+  --so-cyan-500: #06b6d4;
+  --so-cyan-600: #0891b2;
+  --so-sky-600: #0ea5a4;
+  --so-navy-900: #0f172a;
+}
+
+/* hero blob */
+.hero-blob svg { border-radius: 28px; overflow: visible; }
+.hero-blob img { border-radius: 16px; box-shadow: 0 30px 60px rgba(2,6,23,0.25); }
+
+/* animations */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* subtle fade-in on load */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in-up { animation: fadeInUp 600ms ease forwards; }
+
+@keyframes fadeInScale { from { opacity: 0; transform: translateY(12px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.motion-safe\:animate-fadeInScale { animation: fadeInScale 240ms ease-out forwards; }
+
+/* hero layout tweaks */
+header { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
+
+/* button focus and shadows */
+.btn-primary { box-shadow: 0 12px 30px rgba(14,165,233,0.16); }
+
+/* feature container */
+.rounded-3xl { border-radius: 24px; }
+
+/* responsive hero image sizing */
+@media (max-width: 1024px) {
+  .hero-blob { width: 420px; }
+}
+@media (max-width: 768px) {
+  .hero-blob { width: 320px; }
+}
+
+/* scale hero title on smaller viewports to avoid vertical overflow */
+@media (max-height: 820px) {
+  .hero-title { font-size: 2.25rem /* 36px */; line-height: 1.05; }
+}
+@media (min-width: 1024px) and (min-height: 900px) {
+  .hero-title { font-size: 4.25rem /* 68px */; }
+}
+
+/* overlapping feature container fix */
+.landing-root main { position: relative; z-index: 10; }
+
+/* ensure hero content fits viewport without vertical scroll on common viewports */
+@media (min-height: 700px) and (min-width: 1280px) {
+  header.h-screen { height: 100vh; }
+}
+
+/* stack image below text on small screens */
+@media (max-width: 768px) {
+  .grid.md\:grid-cols-2 { grid-template-columns: 1fr; }
+  .hero-blob { margin-top: 12px; }
+  header { padding-bottom: 6rem; }
+  .-bottom-24 { bottom: -6rem !important; }
+}
+
+

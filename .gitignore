@@ -1,0 +1,86 @@
+# =========================
+# Python / FastAPI
+# =========================
+venv/
+.env
+.env.*
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# =========================
+# Node.js / React / Vite
+# =========================
+node_modules/
+dist/
+build/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Operating System
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Database
+# =========================
+*.sqlite3
+*.db
+
+# =========================
+# Testing
+# =========================
+.coverage
+.pytest_cache/
+htmlcov/
+
+# =========================
+# Uploads & Generated Files
+# =========================
+uploads/
+temp/
+tmp/
+media/
+
+# =========================
+# Environment Files
+# =========================
+backend/.env
+frontend/.env
+backend/.env.local
+frontend/.env.local
+
+# =========================
+# Build Artifacts
+# =========================
+*.egg-info/
+dist/
+build/
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+backend/.env
+backend/venv/
+__pycache__/
+.pytest_cache/
+
+# Commit safe configuration templates, never local environment values.
+!backend/.env.example
+!frontend/.env.example
